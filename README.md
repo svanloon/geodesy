@@ -56,9 +56,7 @@ public class Example
         System.out.println("Lincoln Memorial to Eiffel Tower using WGS84");
         System.out.printf(" Ellipsoidal Distance: %1.2f kilometers (%1.2f miles)\n", ellipseKilometers, ellipseMiles);
         System.out.printf(" Azimuth: %1.2f degrees\n", geoCurve.getAzimuth());
-        System.out.printf(" Reverse Azimuth: %1.2f degrees\n",
-        geoCurve.getReverseAzimuth()
-        );
+        System.out.printf(" Reverse Azimuth: %1.2f degrees\n",geoCurve.getReverseAzimuth());
     }
 }
 ```
