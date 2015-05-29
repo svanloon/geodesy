@@ -1,9 +1,11 @@
 package org.gavaghan.geodesy;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import org.junit.Assert;
 
-public class GeodeticCalculatorTest extends TestCase
+public class GeodeticCalculatorTest
 {
+   @Test
    public void testCalculateGeodeticCurve()
    {
       // instantiate the calculator
@@ -23,11 +25,12 @@ public class GeodeticCalculatorTest extends TestCase
       // calculate the geodetic curve
       GeodeticCurve geoCurve = geoCalc.calculateGeodeticCurve(reference, lincolnMemorial, eiffelTower);
 
-      assertEquals(6179016.136, geoCurve.getEllipsoidalDistance(), 0.001);
-      assertEquals(51.76792142, geoCurve.getAzimuth(), 0.0000001);
-      assertEquals(291.75529334, geoCurve.getReverseAzimuth(), 0.0000001);
+      Assert.assertEquals(6179016.136, geoCurve.getEllipsoidalDistance(), 0.001);
+      Assert.assertEquals(51.76792142, geoCurve.getAzimuth(), 0.0000001);
+      Assert.assertEquals(291.75529334, geoCurve.getReverseAzimuth(), 0.0000001);
    }
 
+   @Test
    public void testCalculateGeodeticMeasurement()
    {
       // instantiate the calculator
@@ -49,13 +52,14 @@ public class GeodeticCalculatorTest extends TestCase
 
       geoMeasurement = geoCalc.calculateGeodeticMeasurement(reference, pikesPeak, alcatrazIsland);
 
-      assertEquals(   -4301.0, geoMeasurement.getElevationChange(), 0.001);
-      assertEquals( 1521788.826, geoMeasurement.getPointToPointDistance(), 0.001);
-      assertEquals( 1521782.748, geoMeasurement.getEllipsoidalDistance(), 0.001);
-      assertEquals(271.21039153, geoMeasurement.getAzimuth(), 0.0000001);
-      assertEquals( 80.38029386, geoMeasurement.getReverseAzimuth(), 0.0000001);
+      Assert.assertEquals(-4301.0, geoMeasurement.getElevationChange(), 0.001);
+      Assert.assertEquals(1521788.826, geoMeasurement.getPointToPointDistance(), 0.001);
+      Assert.assertEquals(1521782.748, geoMeasurement.getEllipsoidalDistance(), 0.001);
+      Assert.assertEquals(271.21039153, geoMeasurement.getAzimuth(), 0.0000001);
+      Assert.assertEquals(80.38029386, geoMeasurement.getReverseAzimuth(), 0.0000001);
    }
 
+   @Test
    public void testAntiPodal1()
    {
       // instantiate the calculator
@@ -77,11 +81,12 @@ public class GeodeticCalculatorTest extends TestCase
 
       geoCurve = geoCalc.calculateGeodeticCurve(reference, p1, p2);
 
-      assertEquals( 19970718.422432076, geoCurve.getEllipsoidalDistance(), 0.001);
-      assertEquals(90.0004877491174, geoCurve.getAzimuth(), 0.0000001);
-      assertEquals(270.0004877491174, geoCurve.getReverseAzimuth(), 0.0000001);
+      Assert.assertEquals(19970718.422432076, geoCurve.getEllipsoidalDistance(), 0.001);
+      Assert.assertEquals(90.0004877491174, geoCurve.getAzimuth(), 0.0000001);
+      Assert.assertEquals(270.0004877491174, geoCurve.getReverseAzimuth(), 0.0000001);
    }
 
+   @Test
    public void testAntiPodal2()
    {
       // instantiate the calculator
@@ -103,11 +108,12 @@ public class GeodeticCalculatorTest extends TestCase
 
       geoCurve = geoCalc.calculateGeodeticCurve(reference, p1, p2);
 
-      assertEquals( 19893320.272061437, geoCurve.getEllipsoidalDistance(), 0.001);
-      assertEquals(360.0, geoCurve.getAzimuth(), 0.0000001);
-      assertEquals(0.0, geoCurve.getReverseAzimuth(), 0.0000001);
+      Assert.assertEquals(19893320.272061437, geoCurve.getEllipsoidalDistance(), 0.001);
+      Assert.assertEquals(360.0, geoCurve.getAzimuth(), 0.0000001);
+      Assert.assertEquals(0.0, geoCurve.getReverseAzimuth(), 0.0000001);
    }
 
+   @Test
    public void testInverseWithDirect()
    {
       // instantiate the calculator
@@ -132,11 +138,12 @@ public class GeodeticCalculatorTest extends TestCase
       double[] endBearing = new double[1];
       
       dest = geoCalc.calculateEndingGlobalCoordinates(reference, lincolnMemorial, geoCurve.getAzimuth(), geoCurve.getEllipsoidalDistance(), endBearing);
-      
-      assertEquals( eiffelTower.getLatitude(), dest.getLatitude(), 0.0000001 );
-      assertEquals( eiffelTower.getLongitude(), dest.getLongitude(), 0.0000001 );
+
+      Assert.assertEquals(eiffelTower.getLatitude(), dest.getLatitude(), 0.0000001);
+      Assert.assertEquals(eiffelTower.getLongitude(), dest.getLongitude(), 0.0000001);
    }
-   
+
+   @Test
    public void testPoleCrossing()
    {
      // instantiate the calculator
@@ -160,7 +167,7 @@ public class GeodeticCalculatorTest extends TestCase
      // calculate the ending global coordinates
      GlobalCoordinates dest = geoCalc.calculateEndingGlobalCoordinates(reference, lincolnMemorial, startBearing, distance );
 
-     assertEquals(expected.getLatitude(), dest.getLatitude(), 0.0000001);
-     assertEquals(expected.getLongitude(), dest.getLongitude(), 0.0000001);
+      Assert.assertEquals(expected.getLatitude(), dest.getLatitude(), 0.0000001);
+      Assert.assertEquals(expected.getLongitude(), dest.getLongitude(), 0.0000001);
    }
 }
