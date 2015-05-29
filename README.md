@@ -1,32 +1,38 @@
 # Geodesy
 
 This is a copy of Mike Gavaghan's [Geodesy][0] library, used without
-permission.  This was a clone of ndimiduk's github, but rearranged the directory
-structure to use the maven build paths.
+permission.  This is a fork of ndimiduk's github.
 
-Also, I'm also updated to use gradle to build the project.
+# Changes from ndimiduk
+* Added gradle to allow for stand alone builds
+* Removed eclipse specific files (.classpath and .project)
+* Gradle is also configured to generate Eclipse and IntelliJ IDEA project files 
+* Removed javadoc because it can be generated
+* Updated junit from 3 to 4
+* Migrated agritr directory to normal test directory, but didn't fix Mockingbird dependencies (especially in GeodeticCalculatorAgitarTest).
 
-Gradle can also be used to create the projects for intellij
+
+Generate IntelliJ project files
 ```
 ./gradlew idea
 ```
-And also the project for eclipse
+Generate Eclipse project files
 ```
 ./gradlew eclipse
 ```
 
-The jar can be build just by running gradlew in the root directory.
+Build and test the jar
 ```
+cd <checked out directory>
 ./gradlew clean test jar
 ```
-You can create the javadoc by running
+
+Generate javadoc in the build directory
 ```
 ./gradlew javadoc
-```
-Note:
-The GeodeticCalculatorAgitarTest class could use some love to update from Mockingbird to anything more common. 
+``` 
 
-This code was constructed to mimic [http://www.ngs.noaa.gov/PUBS_LIB/inverse.pdf](http://www.ngs.noaa.gov/PUBS_LIB/inverse.pdf)
+This code was constructed per the documentation to comply with: [http://www.ngs.noaa.gov/PUBS_LIB/inverse.pdf](http://www.ngs.noaa.gov/PUBS_LIB/inverse.pdf)
 
 Here's an example about how to calculate distance from [http://www.gavaghan.org/blog/2007/11/16/java-gps-receivers-and-geocaching-vincentys-formula/](http://www.gavaghan.org/blog/2007/11/16/java-gps-receivers-and-geocaching-vincentys-formula/)
 ```
