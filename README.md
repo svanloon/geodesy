@@ -7,22 +7,22 @@ structure to use the maven build paths.
 Also, I'm also updated to use gradle to build the project.
 
 Gradle can also be used to create the projects for intellij
-
+```
 ./gradlew idea
-
+```
 And also the project for eclipse
-
+```
 ./gradlew eclipse
-
+```
 
 The jar can be build just by running gradlew in the root directory.
-
+```
 ./gradlew clean test jar
-
+```
 You can create the javadoc by running
-
+```
 ./gradlew javadoc
-
+```
 Note:
 The GeodeticCalculatorAgitarTest class could use some love to update from Mockingbird to anything more common. 
 
