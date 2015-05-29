@@ -1,8 +1,6 @@
 package org.gavaghan.geodesy;
 
-import com.agitar.lib.TestHelper;
-
-public class GlobalCoordinatesTestHelper implements TestHelper
+public class GlobalCoordinatesTestHelper
 {
    public static GlobalCoordinates createNorthPole()
    {

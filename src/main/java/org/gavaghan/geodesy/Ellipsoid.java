@@ -36,7 +36,7 @@ public class Ellipsoid implements Serializable
     * @param flattening
     * @param inverseFlattening
     */
-   private Ellipsoid(double semiMajor, double semiMinor, double flattening, double inverseFlattening)
+   protected Ellipsoid(double semiMajor, double semiMinor, double flattening, double inverseFlattening)
    {
      mSemiMajorAxis = semiMajor;
      mSemiMinorAxis = semiMinor;

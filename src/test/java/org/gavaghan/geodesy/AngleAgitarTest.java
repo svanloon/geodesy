@@ -11,37 +11,34 @@
 
 package org.gavaghan.geodesy;
 
-import com.agitar.lib.junit.AgitarTestCase;
 
-public class AngleAgitarTest extends AgitarTestCase {
-    
-    public Class getTargetClass()  {
-        return Angle.class;
-    }
-    
-    public void testConstructor() throws Throwable {
-        callPrivateMethod("org.gavaghan.geodesy.Angle", "<init>", new Class[] {}, null, new Object[] {});
-        assertTrue("Test call resulted in expected outcome", true);
-    }
-    
+import org.junit.Assert;
+import org.junit.Test;
+
+public class AngleAgitarTest {
+
+    @Test
     public void testToDegrees() throws Throwable {
         double result = Angle.toDegrees(100.0);
-        assertEquals("result", 5729.5779513082325, result, 1.0E-6);
+        Assert.assertEquals("result", 5729.5779513082325, result, 1.0E-6);
     }
-    
+
+    @Test
     public void testToDegrees1() throws Throwable {
         double result = Angle.toDegrees(0.0);
-        assertEquals("result", 0.0, result, 1.0E-6);
+        Assert.assertEquals("result", 0.0, result, 1.0E-6);
     }
-    
+
+    @Test
     public void testToRadians() throws Throwable {
         double result = Angle.toRadians(100.0);
-        assertEquals("result", 1.7453292519943295, result, 1.0E-6);
+        Assert.assertEquals("result", 1.7453292519943295, result, 1.0E-6);
     }
-    
+
+    @Test
     public void testToRadians1() throws Throwable {
         double result = Angle.toRadians(0.0);
-        assertEquals("result", 0.0, result, 1.0E-6);
+        Assert.assertEquals("result", 0.0, result, 1.0E-6);
     }
 }
 

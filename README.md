@@ -17,6 +17,11 @@ And also the project for eclipse
 
 The jar can be build just by running gradlew in the root directory.
 
-./gradlew
+./gradlew clean test jar
+
+You can create the javadoc by running
+
+./gradlew javadoc
+
 
 [0]: http://www.gavaghan.org/blog/free-source-code/geodesy-library-vincentys-formula-java/

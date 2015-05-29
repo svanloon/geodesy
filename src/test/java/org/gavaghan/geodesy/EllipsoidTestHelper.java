@@ -1,8 +1,6 @@
 package org.gavaghan.geodesy;
 
-import com.agitar.lib.TestHelper;
-
-public class EllipsoidTestHelper implements TestHelper
+public class EllipsoidTestHelper
 {
    public static Ellipsoid createWGS84()
    {
